@@ -48,4 +48,4 @@ You have seen a few workflows in this repository. They are quality-gates to prev
 
 During the next four weeks, what improvement do you plan in your code-quality practice? (in your regular work, not in this repository!)
 
-**I will first understand the requirements clearly, make a good design, and then proceed with the implementation. I shall focus on writing pure functions with good cognitive complexity and less cyclomatic complexity, and also make the code refactorable or extendable by using the SOLID principles. I will make sure that I do the effective testing of the code I write.**
+**I will first understand the requirements clearly, make a good design, and then proceed with the implementation. I shall focus on writing pure functions with good cognitive complexity and less cyclomatic complexity, and also make the code refactorable or extendable by using the SOLID principles. I will make sure that I do effective testing of the code I write.**
