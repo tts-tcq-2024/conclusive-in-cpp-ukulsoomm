@@ -16,7 +16,7 @@ The [GitHub Actions](https://docs.github.com/en/actions) in this project impleme
 - No Duplications: Fails on finding duplication of 3 lines or more. There are no duplications, so this passes.
 - Limit complexity: The limit per function is set at 3 and it's currently failing
 - Build and Run: Runs the tests. It's passing currently, but there are hardly any tests. You need to add more.
-- Write down your Reflections **Reflections** section below, within this file.
+- Write down your Reflections in the **Reflections** section below, within this file.
 
 As with any legacy, have a look at the code to understand it better.
 
@@ -45,4 +45,5 @@ Think about guiding refactoring-work in your regular/project teams. Think of the
 You have seen a few workflows in this repository. They are quality-gates to prevent duplication, control complexity and prove functionality. Do you think some of them have potential to guide code-improvements in your team? **yes**
 
 During the next four weeks, what improvement do you plan in your code-quality practice? (in your regular work, not in this repository!)
+
 **I will first understand the requirements clearly, make a good design, and then proceed with the implementation. I shall focus on writing pure functions with good cognitive complexity and less cyclomatic complexity, and also make the code refactorable or extendable by using the SOLID principles. I will make sure that I do the effective testing of the code I write.**
