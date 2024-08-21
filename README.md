@@ -36,6 +36,19 @@ Uncovered lines indicate an opportunity to write tests. Complex and repetitive t
 
 > Caution: High coverage doesn't indicate absence of bugs!
 
+## Infer and Report by type
+
+This assessment is graded by the amount of coverage achieved, in addition to readability and ease-of-change.
+
+The data-flow in the code has several variations:
+
+
+The code uses switch-case / if-else ladders to implement these variations.
+
+Such structures limit the open-ness of the code, limiting the possibility of parallel working by multiple developers. They also require repetitive tests.
+
+Try applying the strategy pattern to make the code more 'open', reducing the amount of tests and repetitions, while increasing the coverage.
+
 ## Reflections
 
 This section is about your regular work / project, not about the code in this repository.
