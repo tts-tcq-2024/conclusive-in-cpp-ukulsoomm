@@ -30,3 +30,11 @@ void checkAndAlert(
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
+
+typedef struct {
+    int lowerLimit;
+    int upperLimit;
+} Limits;
+Limits getLimits(CoolingType coolingType);
+
+void sendAlert(AlertTarget alertTarget, BreachType breachType);
