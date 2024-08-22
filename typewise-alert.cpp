@@ -11,42 +11,26 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   return NORMAL;
 }
 
-BreachType classifyTemperatureBreach(
-    CoolingType coolingType, double temperatureInC) {
-  int lowerLimit = 0;
-  int upperLimit = 0;
-  switch(coolingType) {
-    case PASSIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 35;
-      break;
-    case HI_ACTIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 45;
-      break;
-    case MED_ACTIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 40;
-      break;
-  }
-  return inferBreach(temperatureInC, lowerLimit, upperLimit);
+Limits getLimits(CoolingType coolingType) {
+    static const Limits limits[] = {
+        {0, 35},  // PASSIVE_COOLING
+        {0, 45},  // HI_ACTIVE_COOLING
+        {0, 40}   // MED_ACTIVE_COOLING
+    };
+    return limits[coolingType];
 }
 
-void checkAndAlert(
-    AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
+void sendAlert(AlertTarget alertTarget, BreachType breachType) {
+    if(alertTarget == TO_CONTROLLER) {
+        sendToController(breachType);
+    } else if(alertTarget == TO_EMAIL) {
+        sendToEmail(breachType);
+    }
+}
 
-  BreachType breachType = classifyTemperatureBreach(
-    batteryChar.coolingType, temperatureInC
-  );
-
-  switch(alertTarget) {
-    case TO_CONTROLLER:
-      sendToController(breachType);
-      break;
-    case TO_EMAIL:
-      sendToEmail(breachType);
-      break;
-  }
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
+    BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
+    sendAlert(alertTarget, breachType);
 }
 
 void sendToController(BreachType breachType) {
