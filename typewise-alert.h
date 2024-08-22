@@ -32,7 +32,7 @@ typedef struct {
 
 Limits getLimits(CoolingType coolingType);
 
-void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 void sendAlert(AlertTarget alertTarget, BreachType breachType);
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
