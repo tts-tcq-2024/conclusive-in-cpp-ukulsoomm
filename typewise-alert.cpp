@@ -20,6 +20,11 @@ Limits getLimits(CoolingType coolingType) {
     return limits[coolingType];
 }
 
+BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
+    Limits limits = getLimits(coolingType);
+    return inferBreach(temperatureInC, limits.lowerLimit, limits.upperLimit);
+}
+
 void sendAlert(AlertTarget alertTarget, BreachType breachType) {
     if(alertTarget == TO_CONTROLLER) {
         sendToController(breachType);
